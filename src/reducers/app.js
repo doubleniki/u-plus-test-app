@@ -2,7 +2,8 @@ import constants from "../constants";
 
 const initialState = {
   isAppLoading: true,
-  currenciesList: []
+  currenciesList: [],
+  apiError: false
 };
 
 const reducer = (state = initialState, action) => {
@@ -23,6 +24,13 @@ const reducer = (state = initialState, action) => {
         ...state,
         currenciesList,
         isAppLoading: false
+      }
+    }
+    case constants.FETCH_AVAILABLE_CURRENCIES_ERROR: {
+      return {
+        ...state,
+        isAppLoading: false,
+        apiError: true
       }
     }
     

@@ -18,6 +18,9 @@ const RateValue = styled.span(({ minWidth = '0px' }) => ({
   marginRight: '.25rem',
   minWidth: minWidth,
   ['@media (max-width: 768px)']: {
+    minWidth: '35%'
+  },
+  ['@media (max-width: 576px)']: {
     minWidth: '50%'
   }
 }));

@@ -20,6 +20,7 @@ const SpinnerContainer = styled.div({
 
 const Layout = ({ children, title }) => {
   const isAppLoading = useSelector(state => state.app.isAppLoading);
+  const apiError = useSelector(state => state.app.apiError);
   return (
     <Page>
       <Grid layout="fluid">
@@ -31,7 +32,16 @@ const Layout = ({ children, title }) => {
               <Spinner size={'large'}/>
             </SpinnerContainer>
           }
-          { !isAppLoading &&
+          { (!isAppLoading && apiError) &&
+            <SpinnerContainer>
+              <h3>
+                Sorry, but the API is not available now <br />
+                which means this app is useless =( <br />
+                Don't waste your time, have a nice day!
+              </h3>
+            </SpinnerContainer>
+          }
+          { (!isAppLoading && !apiError) &&
             <Fragment>
               <Header title={title} key={'header'}/>
               {children}
