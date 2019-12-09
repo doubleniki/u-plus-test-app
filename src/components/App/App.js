@@ -1,7 +1,7 @@
 import React, {useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
 } from "react-router-dom";
 // Our components' import
 import Routes from '../Routing/Routes.js';
